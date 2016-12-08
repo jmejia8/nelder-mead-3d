@@ -1,12 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
+
+#include "plotter.c"
 
 float randomFloat(int seed)
 {
 	srand(time(NULL) + seed);
 	float r = (float)rand()/(float)RAND_MAX;
-	return r;
+	if (rand() % 2 == 0)
+		return r;
+	return -r;
 }
 
 typedef struct _Simplex
@@ -22,6 +27,10 @@ typedef struct _Simplex
 
 float fun(float x, float y){
 	return x*x + y*y;
+	// return x*x + y*y - 4*x - y - x*y;
+
+	// Himmelblau's function
+	// return pow(x*x + y-11, 2) + pow(x +y*y - 7, 2);
 }
 
 void set_values(float val, float x, float y, Simplex* simplex, char vertex){
@@ -58,8 +67,8 @@ void init_simplex(Simplex* simplex, int values){
 
 	if (values){
 		for (i = 0; i < 3; ++i) {
-			vertices[i][0] = randomFloat(i);
-			vertices[i][1] = vertices[i][0] / (i + 2);
+			vertices[i][0] = WIDTH_PLANO * randomFloat(i);
+			vertices[i][1] = HEIGHT_PLANO * randomFloat(i * 666);
 			val[i] = fun(vertices[i][0], vertices[i][1]);
 		}
 	}else{
@@ -99,11 +108,45 @@ void init_simplex(Simplex* simplex, int values){
 
 }
 
-void nelder_mead(Simplex* simplex, int max_iter){
-	float R[2], R_val, M[2], M_val;
-	int i;
+void nelder_mead(){
+	Simplex* simplex = (Simplex*) malloc(sizeof(Simplex));
 
-	for (int i = 0; i < max_iter; ++i) {
+	init_simplex(simplex, 1);
+	print_simplex(simplex);
+
+	//////////////////////////////////////
+	//////////////////////////////////////
+	//////////////////////////////////////
+
+	int level_counter;
+	float** level_points = levelCurve(&level_counter, fun);
+
+
+	float R[2], R_val, M[2], M_val;
+	int i, j;
+
+	for (i = 0; i < 100; ++i) {
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		// graficando las curvas de nivel
+		glColor3f(5.0, 5.0, 5.0);
+		for (j = 0; j < level_counter; ++j) {
+			DrawCircle(level_points[j][0], level_points[j][1], 0.01, 50);
+		}
+
+		float r = 0.07;
+
+		glColor3f(0.0, 0.9, 0.0);
+		DrawCircle(simplex->best[0], simplex->best[1], r, 100);
+		glColor3f(0.0, 0.0, 1);
+		DrawCircle(simplex->good[0], simplex->good[1], r, 100);
+		glColor3f(1.0, 0.0, 0.0);
+		DrawCircle(simplex->wrost[0], simplex->wrost[1], r, 100);
+
+		drawTriangle(simplex->best, simplex->good, simplex->wrost);
+
+		glFlush();
+
 		R[0] = simplex->best[0] + simplex->good[0] - simplex->wrost[0];
 		R[1] = simplex->best[1] + simplex->good[1] - simplex->wrost[1];
 		R_val = fun(R[0], R[1]);
@@ -148,21 +191,30 @@ void nelder_mead(Simplex* simplex, int max_iter){
 		}
 
 		init_simplex(simplex, 0);
-		// print_simplex(simplex);
+		print_simplex(simplex);
+		usleep(300*1000);
 
 	}
+
+	print_simplex(simplex);
 }
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
-	Simplex* simplex = (Simplex*) malloc(sizeof(Simplex));
 
-	init_simplex(simplex, 1);
+	// Iniciamos openGL
+	glutInit(&argc, argv);
+	glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+	
+	glutInitWindowSize (700, 700);
+	glutInitWindowPosition (100, 100);
+	
+	glutCreateWindow ("Complex animation");
 
-	print_simplex(simplex);
-	nelder_mead(simplex, 100);
-	print_simplex(simplex);
-
+	// Iniciamos el dibujado 2D
+	init2D(0.0, 0.0, 0.0);
+	glutDisplayFunc(nelder_mead);
+	glutMainLoop();
 	
 	
 	return 0;

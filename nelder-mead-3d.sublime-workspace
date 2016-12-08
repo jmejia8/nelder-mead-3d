@@ -4,6 +4,70 @@
 		"selected_items":
 		[
 			[
+				"c",
+				"counter"
+			],
+			[
+				"leve",
+				"level_counter"
+			],
+			[
+				"lev",
+				"level_y"
+			],
+			[
+				"l_",
+				"l_x"
+			],
+			[
+				"le",
+				"level_points"
+			],
+			[
+				"level_",
+				"level_counter"
+			],
+			[
+				"level",
+				"level_points"
+			],
+			[
+				"tmp",
+				"tmp_vals"
+			],
+			[
+				"w",
+				"WIDTH_PLANO"
+			],
+			[
+				"dra",
+				"drawLine"
+			],
+			[
+				"y",
+				"ylim"
+			],
+			[
+				"print",
+				"print_simplex"
+			],
+			[
+				"prin",
+				"printf\tprintf …"
+			],
+			[
+				"val",
+				"values"
+			],
+			[
+				"E",
+				"E_val"
+			],
+			[
+				"se",
+				"set_values"
+			],
+			[
 				"file",
 				"file_name"
 			],
@@ -23,7 +87,24 @@
 			"file": "main.c",
 			"settings":
 			{
-				"buffer_size": 75,
+				"buffer_size": 5205,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/jesus/develop/python/tmp.py",
+			"settings":
+			{
+				"buffer_size": 468,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "plotter.c",
+			"settings":
+			{
+				"buffer_size": 1895,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -101,10 +182,14 @@
 	},
 	"expanded_folders":
 	[
-		"/home/jmejia/develop/repos/nelder_mead_3d"
+		"/home/jesus/develop/repos/nelder-mead-3d"
 	],
 	"file_history":
 	[
+		"/home/jesus/develop/repos/templado_simulado_discreto/tools/nrutil.c",
+		"/home/jesus/develop/python/tmp.py",
+		"/home/jesus/.cinnamon/glass.log",
+		"/home/jesus/.xsession-errors",
 		"/home/jmejia/develop/repos/nelder_mead_3d/.gitignore",
 		"/home/jmejia/develop/repos/nelder_mead_3d/README.md",
 		"/home/jmejia/develop/repos/templado_simulado_discreto/.gitignore",
@@ -128,7 +213,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -142,6 +227,44 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"init",
+			"07",
+			";\n",
+			"10",
+			"500",
+			"1.0",
+			"printf",
+			"[0]",
+			"p2",
+			"1",
+			"200",
+			"2",
+			"[0]",
+			"0",
+			"ylim",
+			"0.1",
+			"30",
+			"nelder_mead",
+			"best",
+			".20f",
+			"%f",
+			"float",
+			" {",
+			"best",
+			"0",
+			"R",
+			"0",
+			"E",
+			"0",
+			"< ",
+			"<",
+			">",
+			"0",
+			"77",
+			"b",
+			"<",
+			"best",
+			"()",
 			"myController",
 			"loadBooks",
 			"display_errors"
@@ -171,15 +294,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 75,
+						"buffer_size": 5205,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								61,
-								61
+								0,
+								0
 							]
 						],
 						"settings":
@@ -192,12 +315,69 @@
 					},
 					"stack_index": 0,
 					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/jesus/develop/python/tmp.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 468,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								272,
+								272
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
 				}
 			]
 		},
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 2,
+					"file": "plotter.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1895,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1254,
+								1254
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 168.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -229,7 +409,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.517931034483,
 			1.0
 		],
 		"rows":
@@ -281,7 +461,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
